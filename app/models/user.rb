@@ -27,7 +27,12 @@ class User < ActiveRecord::Base
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :name, :password, :password_confirmation
 
-
+  has_and_belongs_to_many :needs
+  attr_accessible :need_ids
+  # def need_ids=(needs)
+  #   p needs
+  #   
+  # end
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #
@@ -48,7 +53,11 @@ class User < ActiveRecord::Base
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)
   end
-
+  
+  def to_param
+    login
+  end
+  
   protected
     
 
