@@ -9,7 +9,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081206140343) do
+ActiveRecord::Schema.define(:version => 20081206162023) do
+
+  create_table "geocodes", :force => true do |t|
+    t.decimal "latitude",    :precision => 15, :scale => 12
+    t.decimal "longitude",   :precision => 15, :scale => 12
+    t.string  "query"
+    t.string  "street"
+    t.string  "locality"
+    t.string  "region"
+    t.string  "postal_code"
+    t.string  "country"
+  end
+
+  add_index "geocodes", ["latitude"], :name => "geocodes_latitude_index"
+  add_index "geocodes", ["longitude"], :name => "geocodes_longitude_index"
+  add_index "geocodes", ["query"], :name => "geocodes_query_index", :unique => true
+
+  create_table "geocodings", :force => true do |t|
+    t.integer "geocodable_id"
+    t.integer "geocode_id"
+    t.string  "geocodable_type"
+  end
+
+  add_index "geocodings", ["geocodable_id"], :name => "geocodings_geocodable_id_index"
+  add_index "geocodings", ["geocodable_type"], :name => "geocodings_geocodable_type_index"
+  add_index "geocodings", ["geocode_id"], :name => "geocodings_geocode_id_index"
 
   create_table "needs", :force => true do |t|
     t.integer  "parent_id"
@@ -35,10 +60,7 @@ ActiveRecord::Schema.define(:version => 20081206140343) do
     t.datetime "updated_at"
     t.string   "remember_token",            :limit => 40
     t.datetime "remember_token_expires_at"
-    t.string   "activation_code",           :limit => 40
-    t.datetime "activated_at"
-    t.string   "state",                                    :default => "passive"
-    t.datetime "deleted_at"
+    t.integer  "geocode_id"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
