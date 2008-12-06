@@ -6,6 +6,7 @@
 
 <% for need in @needs %>
   <tr>
+    <td><%= need.name %></td>
     <td><%= link_to 'Show', need %></td>
     <td><%= link_to 'Edit', edit_need_path(need) %></td>
     <td><%= link_to 'Destroy', need, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -13,6 +14,5 @@
 <% end %>
 </table>
 
-<br />
 
 <%= link_to 'New need', new_need_path %>

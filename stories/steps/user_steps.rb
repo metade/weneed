@@ -52,10 +52,6 @@ steps_for(:user) do
     create_user attributes.to_hash_from_story
   end
   
-  When "$actor activates with activation code $attributes" do |_, activation_code|
-    activation_code = '' if activation_code == 'that is blank'
-    activate 
-  end  
 
   When "$actor logs in with $attributes" do |_, attributes|
     log_in_user attributes.to_hash_from_story
@@ -119,23 +115,10 @@ def create_user!(user_type, user_params)
   create_user user_params
   response.should redirect_to('/')
   follow_redirect!
- 
-  # fix the user's activation status
-  activate_user! if user_type == 'activated'
+
 end
 
- 
-def activate_user activation_code=nil
-  activation_code = @user.activation_code if activation_code.nil?
-  get "/activate/#{activation_code}"
-end
 
-def activate_user! *args
-  activate_user *args
-  response.should redirect_to('/login')
-  follow_redirect!
-  response.should have_flash("notice", /Signup complete!/)
-end
 
 def log_in_user user_params=nil
   @user_params ||= user_params

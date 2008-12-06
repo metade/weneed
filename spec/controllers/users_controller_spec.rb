@@ -15,17 +15,8 @@ describe UsersController do
   end
 
   
-  it 'signs up user in pending state' do
-    create_user
-    assigns(:user).reload
-    assigns(:user).should be_pending
-  end
 
-  it 'signs up user with activation code' do
-    create_user
-    assigns(:user).reload
-    assigns(:user).activation_code.should_not be_nil
-  end
+
   it 'requires login on signup' do
     lambda do
       create_user(:login => nil)
@@ -59,32 +50,6 @@ describe UsersController do
   end
   
   
-  it 'activates user' do
-    User.authenticate('aaron', 'monkey').should be_nil
-    get :activate, :activation_code => users(:aaron).activation_code
-    response.should redirect_to('/login')
-    flash[:notice].should_not be_nil
-    flash[:error ].should     be_nil
-    User.authenticate('aaron', 'monkey').should == users(:aaron)
-  end
-  
-  it 'does not activate user without key' do
-    get :activate
-    flash[:notice].should     be_nil
-    flash[:error ].should_not be_nil
-  end
-  
-  it 'does not activate user with blank key' do
-    get :activate, :activation_code => ''
-    flash[:notice].should     be_nil
-    flash[:error ].should_not be_nil
-  end
-  
-  it 'does not activate user with bogus key' do
-    get :activate, :activation_code => 'i_haxxor_joo'
-    flash[:notice].should     be_nil
-    flash[:error ].should_not be_nil
-  end
   
   def create_user(options = {})
     post :create, :user => { :login => 'quire', :email => 'quire@example.com',
