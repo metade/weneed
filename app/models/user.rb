@@ -27,13 +27,12 @@ class User < ActiveRecord::Base
   attr_accessible :login, :email, :name, :password, :password_confirmation
   
   has_many :addresses
+  def address=(address)
+    self.addresses << Address.new(address)
+  end
   
   has_and_belongs_to_many :needs
   attr_accessible :need_ids
-  # def need_ids=(needs)
-  #   p needs
-  #   
-  # end
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #
