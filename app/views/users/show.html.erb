@@ -1,0 +1,5 @@
+<h1><%= current_user.login %>'s Needs</h1>
+
+<p><%= current_user.needs.map { |n| n.name }.join(', ')%></p>
+
+<p><%= link_to('Edit needs', edit_user_needs_path(current_user)) %></p>

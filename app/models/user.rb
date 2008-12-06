@@ -1,7 +1,6 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
-  acts_as_geocodable
 
   include Authentication
   include Authentication::ByPassword
@@ -26,7 +25,9 @@ class User < ActiveRecord::Base
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :name, :password, :password_confirmation
-
+  
+  has_many :addresses
+  
   has_and_belongs_to_many :needs
   attr_accessible :need_ids
   # def need_ids=(needs)
