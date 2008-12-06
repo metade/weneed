@@ -25,10 +25,18 @@ class User < ActiveRecord::Base
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :name, :password, :password_confirmation
+
+  def self.generate_random(n=1)
+    n.times { User.create(UserForgery.user_parms) }
+  end
   
   has_many :addresses
+  attr_accessible :address
+  def address
+    addresses.first
+  end
   def address=(address)
-    self.addresses << Address.new(address)
+    addresses << Address.new(address)
   end
   
   has_and_belongs_to_many :needs

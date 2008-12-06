@@ -125,3 +125,8 @@ GeoKit::Geocoders::geocoder_ca = false
 # various geocoders.  Make sure you read up on relevant Terms of Use for each
 # geocoder you are going to use.
 GeoKit::Geocoders::provider_order = [:google,:us]
+
+# memoize the geocode so that it isn't perfomed more than once for a given address
+class GeoKit::Geocoders::GoogleGeocoder
+  class << self; extend ActiveSupport::Memoizable; self; end.memoize :do_geocode
+end

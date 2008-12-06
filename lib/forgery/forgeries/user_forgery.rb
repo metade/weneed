@@ -7,7 +7,7 @@ class UserForgery < Forgery
       :email => InternetForgery.email_address,
       :password => password,
       :password_confirmation => password,
-      :address => UkAddressForgery.address,
+      :address => { :address => UkAddressForgery.address },
       :need_ids => needs
     }
   end
