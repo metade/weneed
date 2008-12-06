@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081206162023) do
+ActiveRecord::Schema.define(:version => 20081206163311) do
 
   create_table "geocodes", :force => true do |t|
     t.decimal "latitude",    :precision => 15, :scale => 12
@@ -25,6 +25,11 @@ ActiveRecord::Schema.define(:version => 20081206162023) do
   add_index "geocodes", ["latitude"], :name => "geocodes_latitude_index"
   add_index "geocodes", ["longitude"], :name => "geocodes_longitude_index"
   add_index "geocodes", ["query"], :name => "geocodes_query_index", :unique => true
+
+  create_table "geocodes_users", :id => false, :force => true do |t|
+    t.integer "geocode_id"
+    t.integer "user_id"
+  end
 
   create_table "geocodings", :force => true do |t|
     t.integer "geocodable_id"
