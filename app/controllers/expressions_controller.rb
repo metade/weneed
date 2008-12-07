@@ -32,6 +32,15 @@ class ExpressionsController < ApplicationController
     chart.type = :pie
     chart.height, chart.width = 100, 100
     chart.data = needs.map { |n| n.child_count }
-    chart.to_url.gsub('&amp;', '&')
+    image_url = chart.to_url.gsub('&amp;', '&')
+    
+    # Cache image locally so it can be rendered in Exhibit
+    image_key = Digest::MD5.hexdigest(image_url)
+    file_path = File.join(RAILS_ROOT, 'public', 'charts', "#{image_key}.png")
+    unless File.exist? file_path
+      `curl -s -o #{file_path} "#{image_url}"`
+      sleep 0.1
+    end
+    "http://we-need.org/sicamp/charts/#{image_key}.png"
   end
 end
