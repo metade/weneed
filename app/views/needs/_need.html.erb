@@ -1,6 +1,11 @@
-<table>
-<% needs.each do |need| %>
-<td><%= need.name %></td>
-<td><%= need.c %></td>
-<% end %>
-</table>
+<div>
+  <table>
+  <% top_level_needs.each do |need| %>
+  <tr>
+  <td><% if need.parent.nil? %><img src="/images/<%= need.icon %>" width="50"><% end %></td>
+  <td><%= need.name %></td>
+  <td><%= need.child_count %></td>
+  </tr>
+  <% end %>
+  </table>
+</div>

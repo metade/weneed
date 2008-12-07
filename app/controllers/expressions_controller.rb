@@ -8,7 +8,6 @@ class ExpressionsController < ApplicationController
       summary = Need.summary(needs)
       next if summary.nil?
       top_level_needs = summary.select { |n| n.child_count > 0 }
-      p top_level_needs
       next if top_level_needs.empty? # wtf??? shouldn't be empty
       {
         :label => latlng,

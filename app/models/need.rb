@@ -41,6 +41,6 @@ class Need < ActiveRecord::Base
   end
 
   def icon
-    "#{self.url_key}.png"
+    "#{self.url_key}_icon.png"
   end
 end
