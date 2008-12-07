@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081206192024) do
+ActiveRecord::Schema.define(:version => 20081207054159) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20081206192024) do
     t.float    "lng"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "latlng"
   end
 
   create_table "needs", :force => true do |t|
