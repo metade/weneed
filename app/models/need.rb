@@ -17,7 +17,7 @@ class Need < ActiveRecord::Base
       # FIXME: this bit should be done in SQL      
       need.c, need.child_count = need.c.to_i, need.child_count.to_i
       current_parent = need if need.parent.nil?
-      current_parent.child_count += need.c
+      current_parent.child_count += need.c unless current_parent.nil?
       
       result[need.latlng] ||= []
       result[need.latlng] << need

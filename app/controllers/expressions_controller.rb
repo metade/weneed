@@ -28,11 +28,10 @@ class ExpressionsController < ApplicationController
   def image_for_needs(needs, max_count, count)
     chart = GoogleChart.new
     chart.type = :pie
-    size = (50+(count/max_count.to_f)).to_i
+    size = 30+(70*(count/max_count.to_f)).to_i
     chart.height, chart.width = size, size
     chart.data = needs.map { |n| n.child_count }
     image_url = chart.to_url.gsub('&amp;', '&')
-    p image_url
     
     # Cache image locally so it can be rendered in Exhibit
     image_key = Digest::MD5.hexdigest(image_url)
