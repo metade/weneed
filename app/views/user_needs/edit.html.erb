@@ -15,7 +15,7 @@
 </head>
 <body>
   <ul id="menu1" class="PieContextMenu" style="display: none;">
-    <% Need.find_top_level_needs.each do |need| %>
+    <% Need.roots.each do |need| %>
       <li>
       <span id="A" onclick="document.getElementById('user_need_ids_<%= need.id %>').checked=!document.getElementById('user_need_ids_<%= need.id %>').checked;">
         <img src="/images/<%= need.icon %>" alt="" />
