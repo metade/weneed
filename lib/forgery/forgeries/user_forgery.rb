@@ -14,6 +14,6 @@ class UserForgery < Forgery
   
   def self.needs
     @@need_count ||= Need.count
-    (0..rand(10)).to_a.map { |a| rand(@@need_count)+1 }.uniq
+    (0..rand(3)).to_a.map { |a| rand(@@need_count)+1 }.uniq
   end
 end

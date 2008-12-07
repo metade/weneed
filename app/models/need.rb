@@ -25,6 +25,7 @@ class Need < ActiveRecord::Base
     result
   end
   
+  # summarize the need data
   def self.summary(needs)
     rts = roots
     rts.each do |r|

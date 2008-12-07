@@ -5,15 +5,21 @@ class ExpressionsController < ApplicationController
     max_count = needs_by_latlng.values.map { |n| n.size }.max
     data = needs_by_latlng.keys.map do |latlng|
       needs = needs_by_latlng[latlng]
+      summary = Need.summary(needs)
+      next if summary.nil?
+      top_level_needs = summary.select { |n| n.child_count > 0 }
+      p top_level_needs
+      next if top_level_needs.empty? # wtf??? shouldn't be empty
       {
         :label => latlng,
         :latlng => latlng,
-        :needs => needs.map { |n| n.name },
+        :needs => top_level_needs.map { |n| n.name },
         :count => needs.size,
-        :imageURL => image_for_needs(Need.summary(needs), max_count, needs.size),
+        :imageURL => image_for_needs(summary, max_count, needs.size),
         :details => template.result(binding)        
       }
     end
+    data.compact!
     
     respond_to do |format|
       format.json { render :json => { :items => data } }
