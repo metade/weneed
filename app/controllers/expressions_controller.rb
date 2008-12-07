@@ -9,6 +9,10 @@ class ExpressionsController < ApplicationController
         :count => needs.size
       }
     end
+    
+    respond_to do |format|
+      format.json { render :json => data }
+    end
   end
 
   def index

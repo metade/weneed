@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.resources :needs
-  map.resources :expressions
+  map.resources :expressions, :collection => { :data => :get }
   
   map.resource :session
   map.connect '/', :controller => 'pages', :action => 'index'
