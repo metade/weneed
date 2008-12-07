@@ -1,12 +1,43 @@
+<html>
+    <title>My project</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript" src="/javascripts/piemenu.js"></script>
+    <script type="text/javascript">
+    PieContextMenu.attach('container', 'menu1');
+    </script>
+    <style type="text/css">
+      #mainmenu {
+      left:50%;
+      top:50%;
+      position:fixed;
+      }
+    </style>
+</head>
+<body>
+  <ul id="menu1" class="PieContextMenu" style="display: none;">
+    <% Need.find_top_level_needs.each do |need| %>
+      <li>
+      <span id="A" onclick="document.getElementById('user_need_ids_<%= need.id %>').checked=!document.getElementById('user_need_ids_<%= need.id %>').checked;">
+        <img src="/images/<%= need.icon %>" alt="" />
+	      </span>
+      </li>
+    <% end %>
+  </ul> 
 
 <h1>Editing <%= current_user.login %>'s needs </h1>
 
+  
 <% form_for(current_user, :url => user_needs_path(current_user)) do |f| %>
   <%= f.error_messages %>
-  
   <%= nested_set_list(@needs) { |need| check_box_tag('user[need_ids][]', need.id, current_user.needs.include?(need), :id => "user_need_ids_#{need.id}") + need.name } %>
-  
   <p>
     <%= f.submit "Update" %>
   </p>
+</form>
+
 <% end %>
+
+
+    <div id="mainmenu" class="container">What Do You Need?</div>
+  
+  

@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>My project</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript" src="piemenu.js"></script>
+    <script type="text/javascript">
+    PieContextMenu.attach('container', 'menu1');
+    </script>
+    <style type="text/css">
+      #mainmenu {
+      left:50%;
+      top:50%;
+      position:fixed;
+      }
+    </style>
+</head>
+<body>
+    <ul id="menu1" class="PieContextMenu" style="display: none;">
+        <li>
+	  <span id="A" onclick="document.getElementById('user_need_ids_83').checked=true;">
+	    <img src="sunny.gif" alt="" />
+	  </span>
+	</li>
+        <li>
+	  <span id="B" onclick="document.getElementById('user_need_ids_105').checked=true;">
+	    <img src="hammer.jpeg" alt="" />
+	  </span>
+	</li>
+        <li>
+	  <span id="C" onclick="alert('You chose'+this.id)">
+	    <img src="sunny.gif" alt="" />
+	  </span>
+	</li>
+        <li>
+	  <span id="D" onclick="alert('You chose'+this.id)" >
+	    <img src="sunny.gif" alt="" />
+	  </span>
+	</li>
+        <li>
+	  <span id="E" onclick="alert('You chose'+this.id)" >
+	    <img src="sunny.gif" alt="" />
+	  </span>
+	</li>
+        <li>
+	  <span id="F" onclick="alert('You chose'+this.id)">
+	    <img src="sunny.gif" alt="" />
+	  </span>
+	</li>
+        <li>
+	  <span id="G" onclick="alert('You chose'+this.id)">
+	    <img src="sunny.gif" alt="" />
+	  </span>
+	</li>
+	<li>
+	  <span id="H" onclick="alert('You chose'+this.id)">
+	    <img src="sunny.gif" alt="" />
+	  </span>
+	</li>
+    </ul>
+    <h1>Editing dot's needs </h1>
+ 
+<form action="/users/dot/needs" class="edit_user" id="edit_user_1" method="post"><div style="margin:0;padding:0"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="f2f0a71eecc65ae0827b545eae18d84ddb7ef72e" /></div>
+  
+  
+  <ul>
+  <li><input id="user_need_ids_83" name="user[need_ids][]" type="checkbox" value="83" />Doing everyday things
+  <ul>
+    <li><input id="user_need_ids_84" name="user[need_ids][]" type="checkbox" value="84" />Getting up and going to bed</li>
+ 
+    <li><input id="user_need_ids_85" name="user[need_ids][]" type="checkbox" value="85" />Getting washed and dressed</li>
+ 
+    <li><input checked="checked" id="user_need_ids_86" name="user[need_ids][]" type="checkbox" value="86" />Moving about the house</li>
+ 
+    <li><input id="user_need_ids_87" name="user[need_ids][]" type="checkbox" value="87" />preparing meals</li>
+ 
+    <li><input checked="checked" id="user_need_ids_88" name="user[need_ids][]" type="checkbox" value="88" />eating</li>
+ 
+    <li><input id="user_need_ids_89" name="user[need_ids][]" type="checkbox" value="89" />taking medication</li>
+  </ul></li>
+ 
+  <li><input id="user_need_ids_90" name="user[need_ids][]" type="checkbox" value="90" />Being with other people - family, friends, relationships
+  <ul>
+    <li><input id="user_need_ids_91" name="user[need_ids][]" type="checkbox" value="91" />seeing and staying in touch with my family & friends </li>
+ 
+    <li><input id="user_need_ids_92" name="user[need_ids][]" type="checkbox" value="92" />having someone to talk to </li>
+ 
+    <li><input id="user_need_ids_93" name="user[need_ids][]" type="checkbox" value="93" />making friends </li>
+ 
+    <li><input id="user_need_ids_94" name="user[need_ids][]" type="checkbox" value="94" />finding a life partner </li>
+  </ul></li>
+ 
+  <li><input id="user_need_ids_95" name="user[need_ids][]" type="checkbox" value="95" />Getting out and about
+  <ul>
+    <li><input id="user_need_ids_96" name="user[need_ids][]" type="checkbox" value="96" />getting to work/shops/appointments/meetings </li>
+ 
+    <li><input id="user_need_ids_97" name="user[need_ids][]" type="checkbox" value="97" />using public transport </li>
+ 
+    <li><input id="user_need_ids_98" name="user[need_ids][]" type="checkbox" value="98" />sharing transport </li>
+ 
+    <li><input id="user_need_ids_99" name="user[need_ids][]" type="checkbox" value="99" />going to sports/leisure activities </li>
+ 
+    <li><input id="user_need_ids_100" name="user[need_ids][]" type="checkbox" value="100" />going on holiday </li>
+  </ul></li>
+ 
+  <li><input id="user_need_ids_101" name="user[need_ids][]" type="checkbox" value="101" />Running my life
+  <ul>
+    <li><input id="user_need_ids_102" name="user[need_ids][]" type="checkbox" value="102" />handling finances </li>
+ 
+    <li><input id="user_need_ids_103" name="user[need_ids][]" type="checkbox" value="103" />managing paper work </li>
+ 
+    <li><input id="user_need_ids_104" name="user[need_ids][]" type="checkbox" value="104" />getting organised </li>
+  </ul></li>
+ 
+  <li><input id="user_need_ids_105" name="user[need_ids][]" type="checkbox" value="105" />Doing something useful
+  <ul>
+    <li><input id="user_need_ids_106" name="user[need_ids][]" type="checkbox" value="106" />paid work </li>
+ 
+    <li><input id="user_need_ids_107" name="user[need_ids][]" type="checkbox" value="107" />voluntary work </li>
+ 
+    <li><input id="user_need_ids_108" name="user[need_ids][]" type="checkbox" value="108" />setting up a business </li>
+  </ul></li>
+ 
+  <li><input id="user_need_ids_109" name="user[need_ids][]" type="checkbox" value="109" />Education and learning
+  <ul>
+    <li><input id="user_need_ids_110" name="user[need_ids][]" type="checkbox" value="110" />getting a qualification </li>
+ 
+    <li><input id="user_need_ids_111" name="user[need_ids][]" type="checkbox" value="111" />vocational courses </li>
+ 
+    <li><input id="user_need_ids_112" name="user[need_ids][]" type="checkbox" value="112" />improving life skills </li>
+ 
+    <li><input id="user_need_ids_113" name="user[need_ids][]" type="checkbox" value="113" />cultural studies </li>
+  </ul></li>
+ 
+  <li><input id="user_need_ids_114" name="user[need_ids][]" type="checkbox" value="114" />Holidays and Short Breaks
+  <ul>
+    <li><input id="user_need_ids_115" name="user[need_ids][]" type="checkbox" value="115" />going on holiday </li>
+ 
+    <li><input id="user_need_ids_116" name="user[need_ids][]" type="checkbox" value="116" />having a break for me and or my family </li>
+ 
+    <li><input id="user_need_ids_117" name="user[need_ids][]" type="checkbox" value="117" />study break </li>
+ 
+    <li><input id="user_need_ids_118" name="user[need_ids][]" type="checkbox" value="118" />retreat</li>
+  </ul></li>
+</ul>
+  
+  <p>
+    <input id="user_submit" name="commit" type="submit" value="Update" />
+  </p>
+</form>
+    <div id="mainmenu" class="container">What Do You Need?</div>
+</body>
+</html>

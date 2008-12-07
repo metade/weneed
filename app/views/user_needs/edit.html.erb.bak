@@ -1,0 +1,12 @@
+
+<h1>Editing <%= current_user.login %>'s needs </h1>
+
+<% form_for(current_user, :url => user_needs_path(current_user)) do |f| %>
+  <%= f.error_messages %>
+  
+  <%= nested_set_list(@needs) { |need| check_box_tag('user[need_ids][]', need.id, current_user.needs.include?(need), :id => "user_need_ids_#{need.id}") + need.name } %>
+  
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>

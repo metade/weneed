@@ -1,6 +1,6 @@
 class UserNeedsController < ApplicationController
   before_filter :login_required
-  
+  #layout "weneed"  
   def edit
     @needs = Need.find(:all)
   end
