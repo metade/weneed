@@ -6,7 +6,8 @@ class ExpressionsController < ApplicationController
       {
         :latlng => latlng,
         :needs => needs.map { |n| n.name },
-        :count => needs.size
+        :count => needs.size,
+        :imageURL => image_for_needs(Need.summary(needs))
       }
     end
     
@@ -23,5 +24,14 @@ class ExpressionsController < ApplicationController
         render :json => data
       end
     end
+  end
+  
+  protected
+  def image_for_needs(needs)
+    chart = GoogleChart.new
+    chart.type = :pie
+    chart.height, chart.width = 100, 100
+    chart.data = needs.map { |n| n.child_count }
+    chart.to_url.gsub('&amp;', '&')
   end
 end
