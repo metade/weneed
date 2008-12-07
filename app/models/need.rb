@@ -33,4 +33,13 @@ class Need < ActiveRecord::Base
     end
     rts
   end
+
+
+  def url_key
+    self.name.strip.downcase.gsub(/[^a-z]+/,"_")
+  end
+
+  def icon
+    "#{self.url_key}.png"
+  end
 end
