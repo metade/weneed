@@ -45,6 +45,6 @@ class ExpressionsController < ApplicationController
       `curl -s -o #{file_path} "#{image_url}"`
       sleep 0.1
     end
-    "http://metade.org/code/weneed/charts/#{image_key}.png"
+    "charts/#{image_key}.png"
   end
 end
