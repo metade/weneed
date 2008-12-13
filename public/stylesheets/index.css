@@ -1,0 +1,34 @@
+/* @override http://localhost:3000/stylesheets/index.css */
+
+body {
+	margin:         0px;
+	padding:        0px;
+	font-size:      8pt;
+	font-family: Lucida Grande, Helvetica, Arial, sans-serif;
+}
+
+#frame {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    border-collapse: collapse;
+}
+
+#frame tr {
+	vertical-align: top;
+}
+
+#sidebar {
+	width: 18em;
+    padding: 1em;
+    text-align: justify;
+}
+
+#content {
+    padding: 1em;
+}
+
+div.map-lens {
+    text-align: center;
+}

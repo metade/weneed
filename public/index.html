@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>We Need</title>
+    <link rel='stylesheet' href='stylesheets/index.css' type='text/css' />
+    <link href="expressions/data.json" type="application/json" rel="exhibit/data" />
+    <script src="http://static.simile.mit.edu/exhibit/api-2.0/exhibit-api.js" type="text/javascript"></script>
+    <script src="http://static.simile.mit.edu/exhibit/extensions-2.0/map/map-extension.js?gmapkey=ABQIAAAAUmDTZXMka_Ps42KaGWRl7xT6x3b3DQ0X_PG-Pvha88WqTXE68BRkCyovrWQP6c2QDCYNrrXGDW8Anw" type="text/javascript"></script>
+  </head> 
+  <body>
+    <table id="frame">
+      <tr>
+        <td id="sidebar">
+          <h1><a href="http://we-need.org">we-need.org</a></h1>
+          <p>This interface demonstrates how community needs can be visualised on a map.</p>
+          <p>You can narrow down which needs you are interested by selecting from the following list:</p>
+          <div id="exhibit-browse-panel">
+            <div ex:role="facet" ex:expression=".needs" ex:facetLabel="Needs" ex:width="250px"></div>
+          </div>
+          <p>It <a href="http://github.com/metade/weneed">was built during</a> the December 2008 <a href="http://sicamp.org">Social Innovation Camp<a/> by <a href="http://www.fresh-voice.com/">Craig</a>, <a href="http://agoodgeek.blogspot.com/">James</a>, Dominik, <a href="http://www.vdmdesign.net">Vincenzo</a>, Carrie, <a href="http://www.linkedin.com/pub/dir/mark/herringer">Mark</a>, Michele, <a href="http://www.metade.org/">Patrick</a>, <a href="http://www.entreprenurses.net">Dave</a>, <a href="http://www.bigbrudesign.co.uk">Bruno</a>, Andrew and <a href="http://www.colourpiano.com">Adriana</a>.</p>
+          <p align="center"><a href="http://sicamp.org"><img src="images/sicamp.jpg"></a></p>
+        </td>        
+        <td id="content">
+          <div class="map-lens" ex:role="lens" style="display: none;">
+            <span ex:content=".details"></span>
+          </div>
+          <div ex:role="view" ex:viewClass="Map" ex:latlng=".latlng"
+            ex:shape="square"
+            ex:mapWidth="600"            
+            ex:mapHeight="600"
+            ex:icon=".imageURL"
+            ex:zoom="11"            
+            ex:center='51.4665368, -0.1604018'>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
